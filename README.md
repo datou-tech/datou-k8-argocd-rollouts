@@ -36,26 +36,43 @@ With ArgoCD Rollouts, there is a new custom resource definition named Rollout. I
 1. Canary Deployments - deploys new version of application to a % of traffic defined by you before either automatically or manually promoting to release to 100% of traffic (use Argo Rollout w/Strategy Canary)
 1. Blue/Green Deployments - deploys an entire alternate replicaset of your application side-by-side with a preview of the deployment (use Argo Rollout w/Strategy Blue/Green)
 
-### Deploy Rollouts Demo
+### Deploy Rollouts Demo - Canary
 
-1. Deploy the Demo Application
+1. Deploy the Canary Demo Application in this project
 ```
     # CLI equivalent command to create
-    argocd app create datou-rollout \
+    argocd app create datou-canary \
     --repo https://github.com/datou-tech/datou-k8-argocd.git \
-    --path example-deployment \
+    --path canary-deployment \
     --dest-server https://kubernetes.default.svc \
     --dest-namespace default \
     --sync-policy auto
 ```
+1. View the rolled out deployment - https://localhost:8080/applications/datou-canary
+1. Deploy the ArgoCD demonstration application to visualize the deployment
+1. Trigger a deployment
+1. Finish the deployment
+1. Trigger a deployment
+1. Rollback the deployment
 
-### Canary Deployments
+### Deploy Rollouts Demo - Blue/Green 
 
-1. Deploy canary resources
-
-### Blue/Green 
-
-1. Deploy blue/green resources
+1. Deploy the Blue/Green Demo Application in this project
+```
+    # CLI equivalent command to create
+    argocd app create datou-bluegreen \
+    --repo https://github.com/datou-tech/datou-k8-argocd.git \
+    --path bluegreen-deployment \
+    --dest-server https://kubernetes.default.svc \
+    --dest-namespace default \
+    --sync-policy auto
+```
+1. View the rolled out deployment - https://localhost:8080/applications/datou-bluegreen
+1. Deploy the ArgoCD demonstration application to visualize the deployment
+1. Trigger a deployment
+1. Finish the deployment
+1. Trigger a deployment
+1. Rollback the deployment
 
 ### Istio
 
