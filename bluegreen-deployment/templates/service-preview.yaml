@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "bluegreen-deployment.fullname" . }}-active
+  name: {{ include "bluegreen-deployment.fullname" . }}-preview
   labels:
     {{- include "bluegreen-deployment.labels" . | nindent 4 }}
 spec:

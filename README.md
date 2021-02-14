@@ -42,7 +42,7 @@ With ArgoCD Rollouts, there is a new custom resource definition named Rollout. I
 ```
     # CLI equivalent command to create
     argocd app create datou-canary \
-    --repo https://github.com/datou-tech/datou-k8-argocd.git \
+    --repo https://github.com/datou-tech/datou-k8-argocd-rollouts.git \
     --path canary-deployment \
     --dest-server https://kubernetes.default.svc \
     --dest-namespace default \
@@ -61,7 +61,7 @@ With ArgoCD Rollouts, there is a new custom resource definition named Rollout. I
 ```
     # CLI equivalent command to create
     argocd app create datou-bluegreen \
-    --repo https://github.com/datou-tech/datou-k8-argocd.git \
+    --repo https://github.com/datou-tech/datou-k8-argocd-rollouts.git \
     --path bluegreen-deployment \
     --dest-server https://kubernetes.default.svc \
     --dest-namespace default \
