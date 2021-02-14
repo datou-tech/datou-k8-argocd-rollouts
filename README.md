@@ -48,12 +48,12 @@ With ArgoCD Rollouts, there is a new custom resource definition named Rollout. I
     --dest-namespace default \
     --sync-policy auto
 ```
-1. View the rolled out deployment - https://localhost:8080/applications/datou-canary
-1. Deploy the ArgoCD demonstration application to visualize the deployment
-1. Trigger a deployment
-1. Finish the deployment
-1. Trigger a deployment
-1. Rollback the deployment
+1. View the initial state of deployment - https://localhost:8080/applications/datou-canary
+1. Open the rollout CLI to visualize the deployment - `kubectl argo rollouts get rollout datou-canary-canary-deployment --watch`
+1. Trigger a deployment by updating the image version `argocd app set datou-canary -p image.tag=1.18.0`
+1. Finish the deployment - `kubectl argo rollouts promote datou-canary-canary-deployment`
+1. Trigger another deployment - `argocd app set datou-canary -p image.tag=1.16.0`
+1. This time rollback the deployment - `kubectl argo rollouts abort datou-canary-canary-deployment`
 
 ### Deploy Rollouts Demo - Blue/Green 
 
@@ -67,12 +67,12 @@ With ArgoCD Rollouts, there is a new custom resource definition named Rollout. I
     --dest-namespace default \
     --sync-policy auto
 ```
-1. View the rolled out deployment - https://localhost:8080/applications/datou-bluegreen
-1. Deploy the ArgoCD demonstration application to visualize the deployment
-1. Trigger a deployment
-1. Finish the deployment
-1. Trigger a deployment
-1. Rollback the deployment
+1. View the initial state of deployment - https://localhost:8080/applications/datou-bluegreen
+1. Open the rollout CLI to visualize the deployment - `kubectl argo rollouts get rollout datou-bluegreen-bluegreen-deployment --watch`
+1. Trigger a deployment by updating the image version `argocd app set datou-bluegreen -p image.tag=1.18.0`
+1. Finish the deployment - `kubectl argo rollouts promote datou-bluegreen-bluegreen-deployment`
+1. Trigger another deployment - `argocd app set datou-bluegreen -p image.tag=1.16.0`
+1. This time rollback the deployment - `kubectl argo rollouts abort datou-bluegreen-bluegreen-deployment`
 
 ### Istio
 
