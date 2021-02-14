@@ -57,6 +57,8 @@ With ArgoCD Rollouts, there is a new custom resource definition named Rollout. I
 
 ### Deploy Rollouts Demo - Blue/Green 
 
+Blue/Green deployments require an extra Service definition to denote which service is used to preview changes and which service is the active stable version.
+
 1. Deploy the Blue/Green Demo Application in this project
 ```
     # CLI equivalent command to create
